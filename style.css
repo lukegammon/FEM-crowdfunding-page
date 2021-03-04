@@ -21,7 +21,7 @@ nav {
 }
 
 .logo {
-    width: 10rem;
+    width: 9rem;
 }
 
 .hero {
@@ -43,6 +43,7 @@ nav {
     margin: -5.2rem auto;
     padding: 1.5rem;
     border-radius: .5rem;
+    box-shadow: 1px 1px 1px rgb(231, 231, 231);
 }
 
 .product__logo{
@@ -60,11 +61,11 @@ nav {
     font-size: .8rem;
     font-weight: 400;
     color: rgba(128, 128, 128, 0.8);
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .product__cta {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     align-items: center;
 }
@@ -87,3 +88,53 @@ nav {
 .product__cta-bookmark img {
     height: 3.2rem;
 }
+
+.backers {
+    position: relative;
+    top: 8rem;
+    width: 86%;
+    margin: auto;
+    text-align: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 1px rgb(231, 231, 231);
+}
+.backers hr {
+    margin: 1rem auto;
+    width: 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(128, 128, 128, 0.8);
+}
+
+.backers__main {
+    font-size: 1.6rem;
+}
+
+.backers__sub {
+    font-weight: 400;
+    font-size: .8rem;
+    color: rgba(128, 128, 128, 0.8);
+    margin-top: .5rem;
+}
+
+.backers__progress{
+    margin: 0 auto;
+}
+
+.backers__progress-inner {
+    position: relative;
+    width: 14rem;
+    height: .8rem;
+    margin-top: 1rem;
+    background: #42b1aa;
+    border-radius: 1rem;
+}
+.backers__progress-outer {
+    position: absolute;
+    width: 17rem;
+    background: rgba(228, 228, 228, 0.733);
+    height: .8rem;
+    border-radius: 1rem;
+}
+
