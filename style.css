@@ -18,16 +18,53 @@ nav {
     justify-content: space-between;
     width: 100%;
     padding: 1.8rem;
+    z-index: 11;
 }
 
-.nav__menu {
+.nav__dropdown {
+    display: none;
     position: absolute;
-    top: 50rem;
     background: white;
-    top: 5rem;
+    width: 90%;
+    top: 6rem;
     left: 50%;
     transform: translateX(-50%);
-    display: none;
+    border-radius: .5rem;
+    list-style-type: none;
+    z-index: 11;
+    animation: dropdown-roll;
+    animation-duration:.5s;
+}
+
+@keyframes dropdown-roll {
+    0% {
+       height: 0; 
+       opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        height: 13.2rem;
+        opacity: 1;
+    }
+}
+
+.nav__dropdown-link {
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.nav__dropdown-link a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav__dropdown hr {
+    border-top: lightgray;
 }
 
 .hamburger {
@@ -35,6 +72,8 @@ nav {
     width: 1rem;
     height: 1rem;
     background-image: url('./images/icon-hamburger.svg');
+    background-position: center;
+    background-size: cover;
     border: none;
 }
 
@@ -45,6 +84,10 @@ nav {
 
 .hamburger-active {
     background-image: url('./images/icon-hamburger-close.svg');
+    background-position: center;
+    background-size: cover;
+    width: 1rem;
+    height: 1rem;
     transform: rotate(90deg);
     animation-name: hamburger-animation;
     animation-duration: 1s;
@@ -255,6 +298,27 @@ nav {
 
 .about__card-soldout button {
     background: rgb(136, 156, 175);
+}
+
+.overlay {
+    display: none;
+    width: 100vw;
+    height: 100%;
+    z-index: 10;
+    background-color: black;
+    position: fixed;
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    animation: overlay-fade;
+    animation-duration: .5s;
+}
+
+
+@keyframes overlay-fade {
+    from{ opacity: 0};
+    top { opacity: 0.4};
 }
 
 @media only screen and (min-width: 600px) { 
