@@ -1,6 +1,9 @@
+// Overlay to darken non focus background when a modal is displayed
+const overlay = document.querySelector(".overlay");
+
+// Hamburger mobile menu Appear on click
 const hamburgerMenu = document.querySelector(".hamburger");
 const navDropdown = document.querySelector(".nav__dropdown");
-const overlay = document.querySelector(".overlay");
 
 
 hamburgerMenu.addEventListener("click", () => {
@@ -15,6 +18,7 @@ hamburgerMenu.addEventListener("click", () => {
     }
 });
 
+// Change "Bookmark" button highlighting once clicked
 const bookmarkButton = document.querySelector(".product__cta-bookmark");
 
 bookmarkButton.addEventListener("click", () => {
@@ -26,6 +30,25 @@ bookmarkButton.addEventListener("click", () => {
         bookmarkButton.classList.remove("product__cta-bookmark");
     }
 });
+
+// Make the "Back this project" modal show on click of "Back this project" button
+const backProductModal = document.querySelector(".back__modal");
+const backProductButton = document.querySelector(".product__cta-back");
+
+backProductButton.addEventListener("click", () => {
+    backProductModal.style.display = "block";
+    overlay.style.display = "block";     
+});
+
+// Close "Back this project" modal
+const closeBackProductModal = document.querySelector(".back__modal-close");
+closeBackProductModal.addEventListener("click", () => {
+    backProductModal.style.display = "none";
+    overlay.style.display = "none";   
+})
+
+
+
 
 
 

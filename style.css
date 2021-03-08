@@ -109,6 +109,7 @@ nav {
 
 .product {
     position: relative;
+    top: -5rem;
     width: 86%;
     display: flex;
     flex-direction: column;
@@ -147,7 +148,7 @@ nav {
     align-items: center;
 }
 
-.product__cta-backbtn {
+.product__cta-back {
     width: 12rem;
     height: 3.2rem;
     border-radius: 2rem;
@@ -156,6 +157,26 @@ nav {
     border: none;
     font-size: .9rem;
     font-weight: 700;
+    cursor: pointer;
+}
+
+.back__modal {
+    display: none;
+    position: absolute;
+    text-align: start;
+    left: 7%;
+    top: 6rem;
+    width: 86%;
+    padding: 2rem 1.5rem;
+    border-radius: .5rem;
+    background: white;
+    z-index: 100;
+} 
+
+.back__modal-close {
+    position: absolute;
+    top: 2.5rem;
+    right: 1.5rem;
     cursor: pointer;
 }
 
@@ -168,6 +189,7 @@ nav {
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: .6rem;
+    cursor: pointer;
 }
 
 .product__cta-bookmark-active {
@@ -179,14 +201,13 @@ nav {
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: .6rem;
+    cursor: pointer;
 }
 
 
 .backers {
-    position: relative;
-    top: 7rem;
     width: 86%;
-    margin: auto;
+    margin: 2rem auto;
     text-align: center;
     background: white;
     padding: 1.5rem;
@@ -235,23 +256,23 @@ nav {
 }
 
 .about {
-    position: relative;
-    top: 7rem;
     width: 86%;
-    margin: 2rem auto 12rem auto;
+    margin: 0 auto 12rem auto;
     background: white;
     padding: 1.5rem;
     border-radius: .5rem;
     box-shadow: 1px 1px 1px rgb(231, 231, 231);
 }
 
-.about__title {
+.about__title,
+.back__modal-title {
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
-.about__main {
+.about__main,
+.back__modal-main {
     font-size: 1rem;
     font-weight: 400;
     color: rgba(128, 128, 128, 0.8);
@@ -259,7 +280,10 @@ nav {
     margin-bottom: 2rem;
 }
 
-.about__card, .about__card-soldout {
+.about__card, 
+.about__card-soldout,
+.back__modal-card,
+.back__modal-card-soldout {
     border: 1px solid rgb(231, 231, 231);
     border-radius: .5rem;
     box-shadow: 1px 1px 1px rgb(231, 231, 231);
@@ -268,13 +292,14 @@ nav {
 }
 
 
-.about__card-pledge{
-
+.about__card-pledge,
+.back__modal-card-pledge {
     color: #42b1aa;
     margin: .5rem 0 1.5rem 0;
 }
 
-.about__card-description {
+.about__card-description,
+.back__modal-card-description {
     font-size: 1rem;
     font-weight: 400;
     color: rgba(128, 128, 128, 0.8);
@@ -282,18 +307,17 @@ nav {
     margin-bottom: 2rem;
 }
 
-.about__card-remaining {
+.about__card-remaining,
+.back__modal-card-remaining {
     margin: 2rem;
     display: flex;
     align-items: center;
     margin: 0 auto;
-}
-
-.about__card-remaining {
     color: rgba(128, 128, 128, 0.8);
 }
 
-.about__card-remaining__n {
+.about__card-remaining__n,
+.back__modal-card-remaining__n {
     font-size: 2rem; 
     font-weight: 700;
     margin-right: .5rem;
@@ -312,7 +336,8 @@ nav {
     margin-top: 2rem;
 }
 
-.about__card-soldout {
+.about__card-soldout,
+.back__modal-card-soldout {
     opacity: 0.7;
 }
 
