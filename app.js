@@ -37,15 +37,32 @@ const backProductButton = document.querySelector(".product__cta-back");
 
 backProductButton.addEventListener("click", () => {
     backProductModal.style.display = "block";
-    overlay.style.display = "block";     
+    overlay.style.display = "block";
+    hamburgerMenu.style.pointerEvents = "none";
 });
 
 // Close "Back this project" modal
 const closeBackProductModal = document.querySelector(".back__modal-close");
 closeBackProductModal.addEventListener("click", () => {
     backProductModal.style.display = "none";
-    overlay.style.display = "none";   
-})
+    overlay.style.display = "none";
+    hamburgerMenu.style.pointerEvents = "auto";
+});
+
+// "Back this project" options select 
+const radioButtons = document.querySelectorAll(".back__modal-radio");
+const radioButtonSelected = `<span class="back__modal-radio-selected"></span>`;
+radioButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        if(button.children.length === 0) {
+            button.innerHTML = radioButtonSelected;
+        } else {
+            button.innerHTML = '';
+        }
+    })
+});
+
+
 
 
 
