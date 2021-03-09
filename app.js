@@ -53,11 +53,13 @@ closeBackProductModal.addEventListener("click", () => {
 const radioButtons = document.querySelectorAll(".back__modal-radio");
 const radioButtonSelected = `<span class="back__modal-radio-selected"></span>`;
 radioButtons.forEach(button => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
         if(button.children.length === 0) {
             button.innerHTML = radioButtonSelected;
+            e.path[2].lastElementChild.style.display = "block";
         } else {
             button.innerHTML = '';
+            e.path[3].lastElementChild.style.display = "none";
         }
     })
 });

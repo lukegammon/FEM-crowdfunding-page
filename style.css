@@ -214,6 +214,10 @@ nav {
     cursor: pointer;
 }
 
+.back__modal-enterpledge {
+    display: none;
+}
+
 .product__cta-bookmark {
     border: none;
     width: 3.2rem;
