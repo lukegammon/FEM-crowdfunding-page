@@ -56,14 +56,13 @@ radioButtons.forEach(button => {
     button.addEventListener("click", (e) => {
         if(button.children.length === 0) {
             button.innerHTML = radioButtonSelected;
-            e.path[2].style.boxShadow = "none";
-            e.path[2].style.border = "0.15rem solid #42b1aa";
-            e.path[2].style.padding = "1.85rem 1.65rem";
+            e.path[2].style.boxShadow = "0 0 5px #42b1aa";
+            e.path[2].style.border = "0.1rem solid #42b1aa";
             e.path[2].lastElementChild.style.display = "flex";
         } else {
             button.innerHTML = '';
+            e.path[3].style.boxShadow = "1px 1px 1px rgb(231, 231, 231)";
             e.path[3].style.border = "1px solid rgb(231, 231, 231)";
-            e.path[3].style.padding = "2rem 1.5rem";
             e.path[3].lastElementChild.style.display = "none";
         }
     })

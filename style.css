@@ -223,7 +223,7 @@ nav {
 }
 
 .back__modal-enterpledge hr {
-    width: 107%;
+    width: 105%;
     margin-top: 1rem;
     border-top: rgba(128, 128, 128, 0.8);
 }
@@ -243,7 +243,7 @@ nav {
 .back__modal-enterpledge span {
     position: relative;
     top: 50%;
-    left: 2rem;;
+    left: 2rem;
     font-weight: 400;
     font-size: .9rem;
     color: rgba(128, 128, 128, 0.8);
