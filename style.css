@@ -202,7 +202,7 @@ nav {
     width: .8rem;
     height: .8rem;
     border-radius: 50%;
-    background: #42b1aa;;
+    background: #42b1aa;
 }
 /* ---------------------------------------- */
 
@@ -216,6 +216,60 @@ nav {
 
 .back__modal-enterpledge {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.back__modal-enterpledge hr {
+    width: 107%;
+    margin-top: 1rem;
+    border-top: rgba(128, 128, 128, 0.8);
+}
+
+.back__modal-enterpledge-title {
+    font-weight: 400;
+    font-size: .9rem;
+    color: rgba(128, 128, 128, 0.8);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.back__modal-enterpledge-main {
+    text-align: center;
+}
+
+.back__modal-enterpledge span {
+    position: relative;
+    top: 50%;
+    left: 2rem;;
+    font-weight: 400;
+    font-size: .9rem;
+    color: rgba(128, 128, 128, 0.8);
+    z-index: 2;
+}
+
+.back__modal-enterpledge-input {
+    width: 7rem;
+    padding: 1rem 2rem;
+    border-radius: 2em;
+    border: 2px solid rgba(128, 128, 128, 0.6);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-left: .5rem;
+    margin-bottom: 1rem;
+}
+
+.back__modal-enterpledge-btn {
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: #42b1aa;
+    margin-left: 3rem;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .product__cta-bookmark {
@@ -377,6 +431,7 @@ nav {
 .about__card-soldout,
 .back__modal-card-soldout {
     opacity: 0.7;
+    pointer-events: none;
 }
 
 .about__card-soldout button {
