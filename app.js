@@ -19,10 +19,11 @@ let lsBlackLeft = parseInt(localStorage.getItem('blackLeft'));
 const totalRecieved = document.querySelector(".total-recieved");
 totalRecieved.innerHTML = '$' + lsTotalMoney.toLocaleString();
 const backersRecieved = document.querySelector(".backers-recieved");
-backersRecieved.innerHTML = '$' + lsTotalBackers.toLocaleString();
+backersRecieved.innerHTML = lsTotalBackers.toLocaleString();
 
 const bambooLeft = document.querySelectorAll(".bamboo-n");
 const blackLeft = document.querySelectorAll(".black-n");
+
 bambooLeft.forEach(num=> {
     num.innerHTML = lsBambooLeft.toLocaleString();
 });
@@ -113,17 +114,24 @@ newDiv.innerHTML = `
 
 submitPledge.forEach(button => {
     button.addEventListener("click", (e) => {
-        const inputPledge = e.path[1].children[1];
-        console.log(inputPledge.value);
-        if(inputPledge.value) {
+        const inputPledge = Number(e.path[1].children[1].value);
+        let totalLeft = e.path[3].children[3].children[0];
+        if(Number.isInteger(inputPledge) && inputPledge != 0 && inputPledge != '') {
             main.appendChild(newDiv);
             const thanksModal = document.querySelector(".back__modal-submited");
             thanksModal.style.display = "flex";
             overlay.style.zIndex = "11";
             overlay.style.display = "block";
+            lsTotalBackers += 1;
+            lsTotalMoney += inputPledge;
+            totalRecieved.innerHTML = '$' + lsTotalMoney.toLocaleString()
+            backersRecieved.innerHTML = lsTotalBackers.toLocaleString();
+            totalLeft--;
+            
+
+            // SORT OUT LOCAL STORAGE AND FUNCTIONS
 
             // "Got it!" button to close modal after pledge submition
-        
             const gotItBtn = document.querySelector(".back__modal-submitted__btn");
             gotItBtn.addEventListener("click", () => {
                 overlay.style.zIndex = "10";

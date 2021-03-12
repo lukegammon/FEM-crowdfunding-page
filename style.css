@@ -251,7 +251,7 @@ nav {
 
 .back__modal-enterpledge-input {
     width: 6rem;
-    padding: 1rem 2rem;
+    padding: 1rem .5rem 1rem 2rem;
     border-radius: 2em;
     border: 2px solid rgba(128, 128, 128, 0.6);
     font-weight: 700;
