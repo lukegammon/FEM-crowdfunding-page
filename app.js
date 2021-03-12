@@ -107,13 +107,33 @@ newDiv.innerHTML = `
         <h4 class="back__modal-submitted__title">Thanks for your support!</h4>
         <p class="back__modal-submitted__main">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</p>
         <button class="back__modal-submitted__btn">Got it!</button>`
+        
+
+
 
 submitPledge.forEach(button => {
-    button.addEventListener("click", () => {
-        overlay.style.zIndex = "11";
-        main.appendChild(newDiv);
-    })
-}) 
+    button.addEventListener("click", (e) => {
+        const inputPledge = e.path[1].children[1];
+        console.log(inputPledge.value);
+        if(inputPledge.value) {
+            main.appendChild(newDiv);
+            const thanksModal = document.querySelector(".back__modal-submited");
+            thanksModal.style.display = "flex";
+            overlay.style.zIndex = "11";
+            overlay.style.display = "block";
+
+            // "Got it!" button to close modal after pledge submition
+        
+            const gotItBtn = document.querySelector(".back__modal-submitted__btn");
+            gotItBtn.addEventListener("click", () => {
+                overlay.style.zIndex = "10";
+                overlay.style.display = "none";
+                thanksModal.style.display = "none";
+            })
+        }
+    }) 
+})
+
 
 
 

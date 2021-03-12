@@ -491,6 +491,7 @@ nav {
 }
 
 
+
 @keyframes overlay-fade {
     from{ opacity: 0};
     top { opacity: 0.4};
@@ -505,3 +506,20 @@ nav {
         height: 50vh;
     }
   }
+
+  @media only screen and (min-width: 1200px) { 
+    .backers,
+    .product,
+    .about,
+    .nav__dropdown,
+    .back__modal-submited {
+        width: 50%;
+    }
+    .back__modal {
+        width: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+  }
+
