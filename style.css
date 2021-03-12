@@ -170,7 +170,7 @@ nav {
     padding: 2rem 1.5rem;
     border-radius: .5rem;
     background: white;
-    z-index: 100;
+    z-index: 11;
 } 
 
 /* "Back this project" modal RADIO BUTTONS */
@@ -217,13 +217,12 @@ nav {
 .back__modal-enterpledge {
     display: none;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     position: relative;
 }
 
 .back__modal-enterpledge hr {
-    width: 105%;
+    width: 100%;
     margin-top: 1rem;
     border-top: rgba(128, 128, 128, 0.8);
 }
@@ -236,7 +235,7 @@ nav {
     padding: 1.5rem 0;
 }
 
-.back__modal-enterpledge-main {
+.back__enterpledge-main {
     text-align: center;
 }
 
@@ -251,13 +250,12 @@ nav {
 }
 
 .back__modal-enterpledge-input {
-    width: 7rem;
+    width: 6rem;
     padding: 1rem 2rem;
     border-radius: 2em;
     border: 2px solid rgba(128, 128, 128, 0.6);
     font-weight: 700;
     font-size: 1rem;
-    margin-left: .5rem;
     margin-bottom: 1rem;
 }
 
@@ -266,10 +264,49 @@ nav {
     border-radius: 2rem;
     border: none;
     background-color: #42b1aa;
-    margin-left: 3rem;
     color: white;
     font-weight: 700;
     cursor: pointer;
+    margin-left: .5rem;
+}
+
+.back__modal-submited {
+    z-index: 13;
+    background: white;
+    position: fixed;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.back__modal-submitted__title {
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+.back__modal-submitted__main {
+    font-weight: 400;
+    font-size: .9rem;
+    color: rgba(128, 128, 128, 0.8);
+}
+
+.back__modal-submitted__btn {
+    padding: .8rem 2rem;
+    border-radius: 2rem;
+    color: white;
+    background-color: #42b1aa;
+    border: none;
+    font-size: .9rem;
+    font-weight: 700;
+    margin-top: 2rem;
 }
 
 .product__cta-bookmark {

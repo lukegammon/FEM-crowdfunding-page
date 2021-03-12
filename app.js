@@ -1,6 +1,35 @@
 // Overlay to darken non focus background when a modal is displayed
 const overlay = document.querySelector(".overlay");
 
+// Temporary data for basic updating of numbers in prototype
+localStorage.setItem('totalMoney', '81914');
+localStorage.setItem('totalBackers', '5007');
+localStorage.setItem('daysLeft', '56');
+
+localStorage.setItem('bambooLeft', '101');
+localStorage.setItem('blackLeft', '62');
+
+// Set this localstorage data in the DOM
+let lsTotalMoney = parseInt(localStorage.getItem('totalMoney'));
+let lsTotalBackers = parseInt(localStorage.getItem('totalBackers'));
+let lsBambooLeft = parseInt(localStorage.getItem('bambooLeft'));
+let lsBlackLeft = parseInt(localStorage.getItem('blackLeft'));
+
+
+const totalRecieved = document.querySelector(".total-recieved");
+totalRecieved.innerHTML = '$' + lsTotalMoney.toLocaleString();
+const backersRecieved = document.querySelector(".backers-recieved");
+backersRecieved.innerHTML = '$' + lsTotalBackers.toLocaleString();
+
+const bambooLeft = document.querySelectorAll(".bamboo-n");
+const blackLeft = document.querySelectorAll(".black-n");
+bambooLeft.forEach(num=> {
+    num.innerHTML = lsBambooLeft.toLocaleString();
+});
+blackLeft.forEach(num => {
+    num.innerHTML = lsBlackLeft.toLocaleString();
+});
+
 // Hamburger mobile menu Appear on click
 const hamburgerMenu = document.querySelector(".hamburger");
 const navDropdown = document.querySelector(".nav__dropdown");
@@ -67,6 +96,27 @@ radioButtons.forEach(button => {
         }
     })
 });
+
+// Submit pledge and update local storage values
+const main = document.querySelector("main");
+const submitPledge = document.querySelectorAll(".back__modal-enterpledge-btn");
+let newDiv = document.createElement('div');
+newDiv.classList.add('back__modal-submited');
+newDiv.innerHTML = `
+        <img class="back__modal-submitted__img" src="./images/icon-check.svg" alt="Success">
+        <h4 class="back__modal-submitted__title">Thanks for your support!</h4>
+        <p class="back__modal-submitted__main">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</p>
+        <button class="back__modal-submitted__btn">Got it!</button>`
+
+submitPledge.forEach(button => {
+    button.addEventListener("click", () => {
+        overlay.style.zIndex = "11";
+        main.appendChild(newDiv);
+    })
+}) 
+
+
+
 
 
 
