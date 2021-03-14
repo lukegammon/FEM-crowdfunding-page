@@ -2,12 +2,14 @@
 const overlay = document.querySelector(".overlay");
 
 // Temporary data for basic updating of numbers in prototype
-localStorage.setItem('totalMoney', '81914');
-localStorage.setItem('totalBackers', '5007');
-localStorage.setItem('daysLeft', '56');
+if (localStorage.length == 0){
+    localStorage.setItem('totalMoney', '81914');
+    localStorage.setItem('totalBackers', '5007');
+    localStorage.setItem('daysLeft', '56');
+    localStorage.setItem('bambooLeft', '101');
+    localStorage.setItem('blackLeft', '62');
+} 
 
-localStorage.setItem('bambooLeft', '101');
-localStorage.setItem('blackLeft', '62');
 
 // Set this localstorage data in the DOM
 let lsTotalMoney = parseInt(localStorage.getItem('totalMoney'));
@@ -21,8 +23,8 @@ totalRecieved.innerHTML = '$' + lsTotalMoney.toLocaleString();
 const backersRecieved = document.querySelector(".backers-recieved");
 backersRecieved.innerHTML = lsTotalBackers.toLocaleString();
 
-const bambooLeft = document.querySelectorAll(".bamboo-n");
-const blackLeft = document.querySelectorAll(".black-n");
+let bambooLeft = document.querySelectorAll(".bamboo-n");
+let blackLeft = document.querySelectorAll(".black-n");
 
 bambooLeft.forEach(num=> {
     num.innerHTML = lsBambooLeft.toLocaleString();
@@ -115,8 +117,8 @@ newDiv.innerHTML = `
 submitPledge.forEach(button => {
     button.addEventListener("click", (e) => {
         const inputPledge = Number(e.path[1].children[1].value);
-        let totalLeft = e.path[3].children[3].children[0];
         if(Number.isInteger(inputPledge) && inputPledge != 0 && inputPledge != '') {
+            let totalLeft = e.path[3].children[3].children[0];
             main.appendChild(newDiv);
             const thanksModal = document.querySelector(".back__modal-submited");
             thanksModal.style.display = "flex";
@@ -124,10 +126,15 @@ submitPledge.forEach(button => {
             overlay.style.display = "block";
             lsTotalBackers += 1;
             lsTotalMoney += inputPledge;
-            totalRecieved.innerHTML = '$' + lsTotalMoney.toLocaleString()
-            backersRecieved.innerHTML = lsTotalBackers.toLocaleString();
-            totalLeft--;
-            
+            localStorage.setItem("totalBackers", lsTotalBackers)
+            localStorage.setItem("totalMoney", lsTotalMoney);
+            totalRecieved.innerHTML = '$' + parseInt(localStorage.getItem("totalMoney")).toLocaleString();
+            backersRecieved.innerHTML = parseInt(localStorage.getItem("totalBackers")).toLocaleString();
+            if (e.path[3].children[0].children[1].innerHTML == "Bamboo Stand") {
+                --lsBambooLeft;
+                localStorage.setItem('bambooLeft', lsBambooLeft);
+                totalLeft.innerHTML = parseInt(lsBambooLeft);
+            }
 
             // SORT OUT LOCAL STORAGE AND FUNCTIONS
 
