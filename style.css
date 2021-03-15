@@ -490,6 +490,11 @@ nav {
     animation-duration: .5s;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 
 
 @keyframes overlay-fade {

@@ -66,6 +66,30 @@ bookmarkButton.addEventListener("click", () => {
 // Make the "Back this project" modal show on click of "Back this project" button
 const backProductModal = document.querySelector(".back__modal");
 const backProductButton = document.querySelector(".product__cta-back");
+const selectReward = document.querySelectorAll(".about__card-btn");
+const backModalCards = document.querySelectorAll(".back__modal-card");
+
+// Select Reward Button highlights option in modal
+selectReward.forEach(button => {
+    button.addEventListener("click", (e) => {
+        console.log(e);
+        if(e.path[2].children[0].innerHTML === "Bamboo Stand") {
+            backProductModal.style.display = "block";
+            overlay.style.display = "block";
+            hamburgerMenu.style.pointerEvents = "none";
+            backModalCards[1].style.boxShadow = "0 0 5px #42b1aa";
+            backModalCards[1].style.border = "0.1rem solid #42b1aa";
+            backModalCards[1].lastElementChild.style.display = "flex";
+        } else {
+            backProductModal.style.display = "block";
+            overlay.style.display = "block";
+            hamburgerMenu.style.pointerEvents = "none";
+            backModalCards[2].style.boxShadow = "0 0 5px #42b1aa";
+            backModalCards[2].style.border = "0.1rem solid #42b1aa";
+            backModalCards[2].lastElementChild.style.display = "flex";
+        }
+    })
+})
 
 backProductButton.addEventListener("click", () => {
     backProductModal.style.display = "block";
@@ -79,6 +103,11 @@ closeBackProductModal.addEventListener("click", () => {
     backProductModal.style.display = "none";
     overlay.style.display = "none";
     hamburgerMenu.style.pointerEvents = "auto";
+    backModalCards.forEach(card => {
+        card.style.boxShadow = "rgb(231 231 231) 1px 1px 1px";
+        card.style.border = "1px solid rgb(231, 231, 231)";
+        card.lastElementChild.style.display = "none";
+    })
 });
 
 // "Back this project" options select 
@@ -117,8 +146,12 @@ newDiv.innerHTML = `
 submitPledge.forEach(button => {
     button.addEventListener("click", (e) => {
         const inputPledge = Number(e.path[1].children[1].value);
+        let totalLeft;
         if(Number.isInteger(inputPledge) && inputPledge != 0 && inputPledge != '') {
-            let totalLeft = e.path[3].children[3].children[0];
+           if(e.path[3].children[3]){
+                totalLeft = e.path[3].children[3].children[0];
+                console.log(totalLeft);
+           };
             main.appendChild(newDiv);
             const thanksModal = document.querySelector(".back__modal-submited");
             thanksModal.style.display = "flex";
@@ -133,7 +166,11 @@ submitPledge.forEach(button => {
             if (e.path[3].children[0].children[1].innerHTML == "Bamboo Stand") {
                 --lsBambooLeft;
                 localStorage.setItem('bambooLeft', lsBambooLeft);
-                totalLeft.innerHTML = parseInt(lsBambooLeft);
+                totalLeft.innerHTML = lsBambooLeft;
+            } else if (e.path[3].children[0].children[1].innerHTML == "Black Edition Stand") {
+                --lsBlackLeft;
+                localStorage.setItem('blackLeft', lsBlackLeft);
+                totalLeft.innerHTML = lsBlackLeft;
             }
 
             // SORT OUT LOCAL STORAGE AND FUNCTIONS
@@ -142,7 +179,6 @@ submitPledge.forEach(button => {
             const gotItBtn = document.querySelector(".back__modal-submitted__btn");
             gotItBtn.addEventListener("click", () => {
                 overlay.style.zIndex = "10";
-                overlay.style.display = "none";
                 thanksModal.style.display = "none";
             })
         }
